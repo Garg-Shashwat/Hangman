@@ -1,5 +1,6 @@
 import Words
 import random
+import re
 
 def rndm_word():
     word = []
@@ -10,9 +11,10 @@ def rndm_word():
     
 result = rndm_word()
 word, topic = result[0], result[1]
-print(word, topic)
 tries = 6
-ans = '*' * len(word)
+solved = False
+ans = re.sub('[a-z]','*', word)
+print(word, topic)
 while tries > 0:
     print("____________________________________________________")
     print("Topic: " + topic)
@@ -29,6 +31,13 @@ while tries > 0:
             ans = "".join(to_list)
         else:
             tries-=1
+        if '*' not in ans:
+            solved = True
+            break
     else:
         print("Invalid input!")
         continue
+if solved:
+    print("Congrats you won!!!\n:D")
+else:
+    print("Sorry you are hanged\n:(")
