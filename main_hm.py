@@ -1,6 +1,7 @@
 import Words
 import random
 import re
+from os import system
 
 def rndm_word():
     words = []
@@ -16,6 +17,7 @@ tries = 6
 solved = False
 test = re.sub('[a-zA-Z]','*', word)
 while tries > 0:
+    _ = system('cls')
     print("____________________________________________________")
     print("Topic: " + topic)
     print("Lives:", tries)
@@ -41,6 +43,8 @@ while tries > 0:
     else:
         print("Invalid input!")
         continue
+_ = system('cls')
+print('The answer is:',word)
 if solved:
     print("Congrats you won!!!\n:D")
 else:
