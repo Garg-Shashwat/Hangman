@@ -16,14 +16,15 @@ guessed_letters = []
 tries = 6
 solved = False
 test = re.sub('[a-zA-Z]','*', word)
+_ = system('cls')
 while tries > 0:
-    _ = system('cls')
     print("____________________________________________________")
     print("Topic: " + topic)
     print("Lives:", tries)
     print("____________________________________________________")
     print("Word: "+ test)
     a = input("Enter a character: ").upper()
+    _ = system('cls')
     if len(a)==1 and a.isalpha():
         if a in guessed_letters:
             print("You have already guessed this word")
