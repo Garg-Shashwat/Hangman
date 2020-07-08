@@ -1,7 +1,7 @@
-words_list=[["apple","banana","orange","avacado","strawberry","pineapple"],["godzilla","robin hood","the fault in our stars","singham","contagion"],["dark","naruto","friends","the big bang theory","breaking bad","game of thrones"],["god of war","horizon","assassin's creed","grand theft auto","call of duty","player unknown battleground"]]
+words_list=[["APPLE","BANANA","ORANGE","AVOCADO","STRAWBERRY","PINEAPPLE"],["GODZILLA","ROBIN HOOD","THE FAULT IN OUR STARS","SINGHAM","CONTAGION"],["DARK","NARUTO","FRIENDS","THE BIG BANG THEORY","BREAKING BAD","GAME OF THRONES"],["GOD OF WAR","HORIZON","ASSASSIN'S CREED","GRAND THEFT AUTO","CALL OF DUTY","PLAYER UNKNOWN BATTLEGROUND"]]
 words_dict={
-0:"fruits",
-1:"movies",
-2:"series",
-3:"games"
+0:"Fruits",
+1:"Movies",
+2:"Series",
+3:"Games"
 }

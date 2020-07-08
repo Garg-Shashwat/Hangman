@@ -3,35 +3,35 @@ import random
 import re
 
 def rndm_word():
-    word = []
+    words = []
     num = random.randint(0,len(Words.words_dict)-1)
-    word.append(random.choice(Words.words_list[num]))
-    word.append(Words.words_dict[num])
-    return word
+    words.append(random.choice(Words.words_list[num]))
+    words.append(Words.words_dict[num])
+    return words
     
 result = rndm_word()
 word, topic = result[0], result[1]
+guessed_words = []
 tries = 6
 solved = False
-ans = re.sub('[a-z]','*', word)
-print(word, topic)
+test = re.sub('[a-zA-Z]','*', word)
 while tries > 0:
     print("____________________________________________________")
     print("Topic: " + topic)
     print("Lives:", tries)
     print("____________________________________________________")
-    print("Word: "+ ans)
-    a = input("Enter a character: ").lower()
+    print("Word: "+ test)
+    a = input("Enter a character: ").upper()
     if len(a)==1 and a.isalpha():
         if a in word:
-            to_list = list(ans)
+            to_list = list(test)
             for i in range(len(word)):
                 if a == word[i]:
                     to_list[i] = a
-            ans = "".join(to_list)
+            test = "".join(to_list)
         else:
             tries-=1
-        if '*' not in ans:
+        if '*' not in test:
             solved = True
             break
     else:
