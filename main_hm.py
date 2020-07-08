@@ -11,7 +11,7 @@ def rndm_word():
     
 result = rndm_word()
 word, topic = result[0], result[1]
-guessed_words = []
+guessed_letters = []
 tries = 6
 solved = False
 test = re.sub('[a-zA-Z]','*', word)
@@ -23,7 +23,11 @@ while tries > 0:
     print("Word: "+ test)
     a = input("Enter a character: ").upper()
     if len(a)==1 and a.isalpha():
-        if a in word:
+        if a in guessed_letters:
+            print("You have already guessed this word")
+            continue
+        elif a in word:
+            guessed_letters.append(a)
             to_list = list(test)
             for i in range(len(word)):
                 if a == word[i]:
