@@ -9,11 +9,22 @@ def rndm_word():
     words.append(random.choice(Words.words_list[num]))
     words.append(Words.words_dict[num])
     return words
-    
+
+def attempts():
+    while True:
+        try:    
+            tries = int(input("Enter the number of attempts:"))
+            if not 0 < tries <= 20:
+                print("Attempts can only be in range 1-25")
+            else :
+                return tries
+        except:
+            print("Invalid value entered")
+
 result = rndm_word()
 word, topic = result[0], result[1]
 guessed_letters = []
-tries = 6
+tries = attempts()
 solved = False
 test = re.sub('[a-zA-Z]','*', word)
 _ = system('cls')
@@ -38,9 +49,13 @@ while tries > 0:
             test = "".join(to_list)
         else:
             tries-=1
+            print('Letter not found')
         if '*' not in test:
             solved = True
             break
+    elif len(a)==len(word) and a==word:
+        solved = True
+        break
     else:
         print("Invalid input!")
         continue
