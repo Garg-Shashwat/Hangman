@@ -3,28 +3,39 @@ import random
 import re
 from os import system
 
+
+def difficulty():
+    while True:
+            difficult = str(input("Please Select Difficulty: Easy, Medium or Hard? ").strip().lower())
+            if difficult == "easy":
+                tries=12
+                break
+            elif difficult == "medium":
+                tries=8
+                break
+            elif difficult == "hard":
+                tries=4
+                break
+            else:
+                print("Enter a Valid Difficulty")
+    return tries
+
 def rndm_word():
     words = []
     num = random.randint(0,len(Words.words_dict)-1)
-    words.append(random.choice(Words.words_list[num]))
-    words.append(Words.words_dict[num])
+    if tries == 12:
+        words.append(random.choice(Words.easy[num]))
+    if tries == 8:
+        words.append(random.choice(Words.medium[num]))
+    if tries == 4:
+        words.append(random.choice(Words.hard[num]))
+    words.append(words_dict[num])
     return words
 
-def attempts():
-    while True:
-        try:    
-            tries = int(input("Enter the number of attempts:"))
-            if not 0 < tries <= 20:
-                print("Attempts can only be in range 1-25")
-            else :
-                return tries
-        except:
-            print("Invalid value entered")
-
+tries = difficulty()
 result = rndm_word()
 word, topic = result[0], result[1]
 guessed_letters = []
-tries = attempts()
 solved = False
 test = re.sub('[a-zA-Z]','*', word)
 _ = system('cls')
