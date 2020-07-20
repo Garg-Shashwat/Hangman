@@ -29,7 +29,7 @@ def rndm_word():
         words.append(random.choice(Words.medium[num]))
     if tries == 4:
         words.append(random.choice(Words.hard[num]))
-    words.append(words_dict[num])
+    words.append(Words.words_dict[num])
     return words
 
 tries = difficulty()
