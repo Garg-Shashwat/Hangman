@@ -19,12 +19,15 @@ def difficulty():
             difficult = str(input("Please Select Difficulty: Easy, Medium or Hard? ").strip().lower())
             if difficult == "easy":
                 tries=12
-            if difficult == "medium":
+                break
+            elif difficult == "medium":
                 tries=8
-            if difficult == "hard":
+                break
+            elif difficult == "hard":
                 tries=4
-        except:
-            print("Enter valid difficulty: Easy, Medium or Hard")
+                break
+            else:
+                print("Enter a Valid Difficulty")
     return tries
 
 def rndm_word():
@@ -39,10 +42,10 @@ def rndm_word():
     words.append(words_dict[num])
     return words
 
+tries = difficulty()
 result = rndm_word()
 word, topic = result[0], result[1]
 guessed_letters = []
-tries = difficulty()
 solved = False
 test = re.sub('[a-zA-Z]','*', word)
 _ = system('cls')
